@@ -319,85 +319,292 @@
             flex-shrink: 0;
         }
 
-        /* Responsive breakpoints */
+        /* Mobile responsive design - maintaining design integrity */
         
-        /* Small mobile phones (320px - 480px) */
-        @media (max-width: 480px) {
+        /* All mobile screens */
+        @media (max-width: 768px) {
+            :root {
+                --container-max: 100%;
+                /* Adjust spacing for mobile */
+                --space-xs: 8px;
+                --space-sm: 12px;
+                --space-md: 16px;
+                --space-lg: 24px;
+                --space-xl: 32px;
+                --space-2xl: 40px;
+            }
+            
             .container {
-                padding: 0 var(--space-sm);
+                padding: 0 var(--space-md);
+                max-width: 100%;
+            }
+            
+            .header {
+                padding: var(--space-xl) 0 var(--space-lg);
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .name {
+                font-size: 28px;
+                line-height: 1.2;
+                margin-bottom: var(--space-sm);
+                font-weight: 600;
+            }
+            
+            .title {
+                font-size: 16px;
+                margin-bottom: var(--space-lg);
+                color: var(--text-secondary);
             }
             
             .contact-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-xs);
-            }
-            
-            .skill-group {
+                display: flex;
                 flex-direction: column;
+                gap: var(--space-sm);
+            }
+            
+            .contact-item {
+                display: flex;
+                align-items: center;
                 gap: var(--space-xs);
+                padding: var(--space-xs) 0;
+                min-height: 36px;
+                font-size: 14px;
+                color: var(--text-secondary);
             }
             
-            .skill-label {
-                min-width: auto;
-                font-size: var(--fs-base);
+            .contact-item svg {
+                width: 18px;
+                height: 18px;
+                flex-shrink: 0;
             }
             
-            .download-btn {
-                top: var(--space-sm);
-                right: var(--space-sm);
-                padding: var(--space-xs) var(--space-sm);
-                font-size: 0.8125rem;
+            .contact-item a {
+                color: var(--accent);
+                text-decoration: none;
+            }
+            
+            .main-content {
+                padding: var(--space-lg) 0 var(--space-2xl);
+            }
+            
+            .section {
+                margin-bottom: var(--space-xl);
+            }
+            
+            .section:last-child {
+                margin-bottom: 0;
+            }
+            
+            .section-title {
+                font-size: 12px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: var(--primary);
+                margin-bottom: var(--space-md);
+            }
+            
+            .intro {
+                font-size: 15px;
+                line-height: 1.6;
+                color: var(--text-primary);
+            }
+            
+            .intro p {
+                margin-bottom: var(--space-md);
+            }
+            
+            .intro p:last-child {
+                margin-bottom: 0;
+            }
+            
+            .experience-list {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-xl);
+            }
+            
+            .experience-item {
+                padding-bottom: var(--space-lg);
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .experience-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+            
+            .job-header {
+                margin-bottom: var(--space-md);
+            }
+            
+            .job-title {
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--primary);
+                line-height: 1.3;
+                margin-bottom: var(--space-xs);
+            }
+            
+            .job-meta {
+                font-size: 13px;
+                color: var(--text-muted);
+                font-weight: 400;
+            }
+            
+            .achievements {
+                list-style: none;
+                margin-left: 0;
             }
             
             .achievements li {
-                padding-left: var(--space-sm);
-                font-size: var(--fs-sm);
+                position: relative;
+                padding-left: 20px;
+                margin-bottom: var(--space-sm);
+                font-size: 14px;
+                line-height: 1.6;
+                color: var(--text-primary);
             }
-
-            .job-title {
-                font-size: var(--fs-md);
+            
+            .achievements li:last-child {
+                margin-bottom: 0;
             }
-
-            .section-title {
-                font-size: var(--fs-xs);
+            
+            .achievements li:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0.7em;
+                width: 4px;
+                height: 4px;
+                background: var(--accent);
+                border-radius: 50%;
             }
-
-            .intro {
-                font-size: var(--fs-base);
+            
+            .projects-grid {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-lg);
             }
-        }
-
-        /* Medium mobile phones (481px - 768px) */
-        @media (min-width: 481px) and (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: var(--space-sm);
+            
+            .project-item {
+                padding-bottom: var(--space-md);
+                border-bottom: 1px solid var(--border);
             }
-        }
-
-        /* Tablets (769px - 1024px) */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .contact-grid {
-                grid-template-columns: repeat(3, 1fr);
+            
+            .project-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+            
+            .project-title {
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--primary);
+                line-height: 1.3;
+                margin-bottom: var(--space-xs);
+            }
+            
+            .project-description {
+                font-size: 14px;
+                color: var(--text-secondary);
+                line-height: 1.6;
+            }
+            
+            .skills-section {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-lg);
             }
             
             .skill-group {
-                gap: var(--space-lg);
+                display: block;
+            }
+            
+            .skill-label {
+                font-size: 12px;
+                font-weight: 700;
+                color: var(--primary);
+                margin-bottom: var(--space-xs);
+                display: block;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+            
+            .skill-items {
+                font-size: 14px;
+                line-height: 1.6;
+                color: var(--text-primary);
+            }
+            
+            .education-item {
+                padding-bottom: var(--space-md);
+            }
+            
+            .education-title {
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--primary);
+                margin-bottom: var(--space-xs);
+            }
+            
+            .education-school {
+                font-size: 14px;
+                color: var(--text-secondary);
+            }
+            
+            .download-btn {
+                position: fixed;
+                bottom: var(--space-md);
+                right: var(--space-md);
+                background: var(--primary);
+                color: white;
+                border: none;
+                border-radius: 25px;
+                padding: 12px 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: var(--space-xs);
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+                transition: all 0.2s;
+                z-index: 100;
+                min-width: 140px;
+            }
+            
+            .download-btn:hover {
+                background: var(--secondary);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            }
+            
+            .download-btn svg {
+                width: 16px;
+                height: 16px;
+                stroke-width: 2;
             }
         }
-
-        /* Large screens (1025px+) */
-        @media (min-width: 1025px) {
-            .contact-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: var(--space-md);
+        
+        /* Small mobile screens */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
             }
-        }
-
-        /* High DPI screens */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            body {
-                -webkit-font-smoothing: subpixel-antialiased;
+            
+            .name {
+                font-size: 24px;
+            }
+            
+            .download-btn {
+                bottom: 16px;
+                right: 16px;
+                left: 16px;
+                border-radius: 12px;
+                min-width: auto;
             }
         }
 
@@ -504,7 +711,7 @@
     <div class="container">
         <header class="header">
             <h1 class="name">Rinkesh Gorasia</h1>
-            <p class="title">Product Leader & 2× Founder</p>
+
             <div class="contact-grid">
                 <div class="contact-item">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -512,7 +719,7 @@
                 </div>
                 <div class="contact-item">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    <a href="/cdn-cgi/l/email-protection#deacb7b0b5bbadb6b9b1acbfadb7bf9eb9b3bfb7b2f0bdb1b3"><span class="__cf_email__" data-cfemail="6e1c0700050b1d0609011c0f1d070f2e09030f0702400d0103">[email&#160;protected]</span></a>
+                    <a href="mailto:rinkeshgorasia@gmail.com">rinkeshgorasia@gmail.com</a>
                 </div>
                 <div class="contact-item">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
@@ -629,7 +836,7 @@
         Download PDF
     </button>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         function downloadResume() {
             // Hide download button for print
             const downloadBtn = document.querySelector('.download-btn');
@@ -659,5 +866,8 @@
 
         // Add smooth scroll behavior for any future links
         document.addEventListener('DOMContentLoaded', function() {
-            // Track link clicks for analytics
-       
+            // Track link clicks for analytics if needed
+        });
+    </script>
+</body>
+</html>
