@@ -279,45 +279,7 @@
             color: var(--text-secondary);
         }
 
-        .download-btn {
-            position: fixed;
-            top: var(--space-lg);
-            right: var(--space-lg);
-            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            padding: var(--space-sm) var(--space-md);
-            font-size: var(--fs-sm);
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 16px rgba(31, 41, 55, 0.2);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            gap: var(--space-xs);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
 
-        .download-btn:hover {
-            background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(31, 41, 55, 0.3);
-        }
-
-        .download-btn:active {
-            transform: translateY(0);
-            box-shadow: 0 4px 16px rgba(31, 41, 55, 0.2);
-        }
-
-        .download-btn svg {
-            width: 16px;
-            height: 16px;
-            stroke-width: 2;
-            flex-shrink: 0;
-        }
 
         /* Mobile responsive design - maintaining design integrity */
         
@@ -553,40 +515,6 @@
                 font-size: 14px;
                 color: var(--text-secondary);
             }
-            
-            .download-btn {
-                position: fixed;
-                bottom: var(--space-md);
-                right: var(--space-md);
-                background: var(--primary);
-                color: white;
-                border: none;
-                border-radius: 25px;
-                padding: 12px 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: var(--space-xs);
-                font-size: 14px;
-                font-weight: 500;
-                cursor: pointer;
-                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-                transition: all 0.2s;
-                z-index: 100;
-                min-width: 140px;
-            }
-            
-            .download-btn:hover {
-                background: var(--secondary);
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-            }
-            
-            .download-btn svg {
-                width: 16px;
-                height: 16px;
-                stroke-width: 2;
-            }
         }
         
         /* Small mobile screens */
@@ -597,14 +525,6 @@
             
             .name {
                 font-size: 24px;
-            }
-            
-            .download-btn {
-                bottom: 16px;
-                right: 16px;
-                left: 16px;
-                border-radius: 12px;
-                min-width: auto;
             }
         }
 
@@ -831,39 +751,9 @@
         </main>
     </div>
 
-    <button class="download-btn" onclick="downloadResume()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download PDF
-    </button>
+
 
     <script>
-        function downloadResume() {
-            // Hide download button for print
-            const downloadBtn = document.querySelector('.download-btn');
-            downloadBtn.style.display = 'none';
-            
-            // Set document title for PDF
-            const originalTitle = document.title;
-            document.title = 'Rinkesh_Gorasia_Resume';
-            
-            // Print the page
-            window.print();
-            
-            // Restore button and title after print dialog
-            setTimeout(() => {
-                downloadBtn.style.display = 'flex';
-                document.title = originalTitle;
-            }, 100);
-        }
-
-        // Handle print keyboard shortcut
-        document.addEventListener('keydown', function(e) {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
-                e.preventDefault();
-                downloadResume();
-            }
-        });
-
         // Add smooth scroll behavior for any future links
         document.addEventListener('DOMContentLoaded', function() {
             // Track link clicks for analytics if needed
